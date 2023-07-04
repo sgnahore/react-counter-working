@@ -5,23 +5,23 @@ function CounterDemo(): JSX.Element {
     useState(0);
 
   const handleAddOne = () => {
-    queueRerenderWithNewCounterValue(counterValueFromCurrentRender + 1);
+    queueRerenderWithNewCounterValue(previousValue => previousValue + 1);
   };
 
   const handleMinusFive = () => {
-    queueRerenderWithNewCounterValue(counterValueFromCurrentRender - 5);
+    queueRerenderWithNewCounterValue(previousValue => previousValue - 5);
   };
 
   const handleMinusOne = () => {
-    queueRerenderWithNewCounterValue(counterValueFromCurrentRender - 1);
+    queueRerenderWithNewCounterValue(previousValue => previousValue - 1);
   };
 
   const handlePlusFive = () => {
-    queueRerenderWithNewCounterValue(counterValueFromCurrentRender + 5);
+    queueRerenderWithNewCounterValue(previousValue => previousValue + 5);
   };
   const handleReset = () => {
     queueRerenderWithNewCounterValue(
-      counterValueFromCurrentRender - counterValueFromCurrentRender
+      previousValue => previousValue - previousValue
     );
 
     // TODO reset counter to 0 here
